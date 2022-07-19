@@ -1,0 +1,96 @@
+body {
+	background: purple;
+}
+h1, h2 {
+	font-size: 3em;
+	margin-bottom: .5em;
+	color: #7c7c7c;
+}
+h3 {
+	font-size: 1.5em;
+	margin-bottom: .2em;
+	color: #7c7c7c;
+}
+p {
+	font-size: 1.25em;
+	line-height: 1.4;
+	margin-bottom: 1em;
+	color: #7c7c7c;
+} 
+a {
+	font-size: 1.25em;
+	line-height: 1.4;
+	color: #7c7c7c;
+} 
+img {
+	display: block;
+	max-width: 100%;
+}
+
+.portifolio {
+	
+}
+
+.home, .dados{
+    background-color: black;
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 60px 0;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	border-radius: 10px;
+}
+.home-info {
+	flex: 2 1 300px;
+	margin: 0 10px;
+	/* display: flex; */
+}
+.home-info p {
+	max-width: 450px;
+	margin: 10px;
+	font-size: 1.25em;
+	line-height: 1.4;
+	margin-bottom: 1em;
+	color: #7c7c7c;
+}
+.home-imagem {
+	flex: 1 1 160px;
+	margin: 0 10px;
+	height: 250px;
+	display: flex;
+}
+.foto-perfil {
+	height: 300px;
+	border-radius: 200px;
+	flex: 2 1 300px;	
+}
+.redes {
+	max-width: 220px;
+	background-color: whitesmoke;
+	border-radius: 10px;
+	margin: 40px;
+
+}
+.redes img {
+    height: 50px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.contato {
+    max-width: 415px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 40px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.contato img {
+    height: 50px;
+    margin: 30px;
+}
+.contato p {
+	color: purple;
+}
