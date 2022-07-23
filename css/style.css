@@ -28,10 +28,20 @@ img {
 }
 
 .portifolio {
-	
+	display: flex;
 }
 
-.home, .dados{
+.home{
+    background-color: black;
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 60px 0;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	border-radius: 10px;
+}
+.dados, .projetos{
     background-color: black;
 	max-width: 500px;
 	margin: 0 auto;
@@ -42,7 +52,7 @@ img {
 	border-radius: 10px;
 }
 .home-info {
-	flex: 2 1 300px;
+	/* flex: 2 1 300px; */
 	margin: 0 10px;
 	/* display: flex; */
 }
