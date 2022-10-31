@@ -1,21 +1,21 @@
 body {
-	background: purple;
+	background: #5e17eb;
 }
 h1, h2 {
 	font-size: 3em;
 	margin-bottom: .5em;
-	color: #7c7c7c;
+	color: #e58900;
 }
 h3 {
 	font-size: 1.5em;
 	margin-bottom: .2em;
-	color: #7c7c7c;
+	color: #e58900;
 }
 p {
 	font-size: 1.25em;
 	line-height: 1.4;
 	margin-bottom: 1em;
-	color: #7c7c7c;
+	color: #e58900;
 } 
 a {
 	font-size: 1.25em;
@@ -33,17 +33,17 @@ img {
 
 .home{
     background-color: black;
-	max-width: 500px;
-	margin: 0 auto;
+	max-width: 650px;
+	margin: 10 auto;
 	padding: 60px 0;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 .dados, .projetos{
     background-color: black;
-	max-width: 500px;
+	max-width: 900px;
 	margin: 0 auto;
 	padding: 60px 0;
 	display: flex;
@@ -62,7 +62,7 @@ img {
 	font-size: 1.25em;
 	line-height: 1.4;
 	margin-bottom: 1em;
-	color: #7c7c7c;
+	color: #e58900;
 }
 .home-imagem {
 	flex: 1 1 160px;
