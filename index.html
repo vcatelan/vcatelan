@@ -1,120 +1,827 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="">
-    <!-- <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/style.css"> -->
-    <title>Victor Lagôas Catelan</title>
+    <title>Desenvolvedor e Design</title>
+    <link rel="icon" href="./img/favicon.svg" type="svg+xml">
+
+    <style>
+    /* 0-GLOBAL-START */
+        body {
+            margin: 0px;
+            font-family: "fira sans", arial, sans-serif;
+            color: #141414;
+        }
+        h1, h2, h3, p {
+            margin: 0px;
+        }
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none; 
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .subtitulo{
+            font-size: 8rem;
+            word-break: break-all;
+            line-height: 1;
+            text-transform: uppercase;
+            max-width: 4ch;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    /* 0-GLOBAL-END */
+
+    /* 1-HEADER-START */
+        .header {
+            max-width: 1200px;
+            padding: 40px 20px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .header-menu a {
+            font-size: 1.25rem;
+            line-height: 1.3;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #141414;
+            display: block;
+        }
+        @media (max-width: 800px) {
+            .header {
+                flex-direction: column;
+                gap: 40px;
+                padding: 20px;
+            }
+            .header a {
+                background: #f5f5f5;
+                border-radius: 4px;
+            }
+        }
+    /* 1-HEADER-END */
+
+    /* 2-INTRODUCAO-START */
+        .img-perfil{
+           border-radius: 30px; 
+           box-shadow: 4px 7px 10px 2px #afafaf;
+           border: 1px solid #a7a7a7;
+        }
+        .introducao {
+            max-width: 1200px;
+            padding: 40px 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 100px;
+            align-items: center;
+        }
+        .introducao h1 {
+            font-size: 4.5rem;
+            line-height: 1.125;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .introducao h1::before {
+            content: "";
+            display: block;
+            width: 130px;
+            height: 100px;
+            background: url("detalhe.svg") no-repeat center;
+            position: absolute;
+            top: -15px;
+            left: -40px;
+            z-index: -1;
+        }
+        .introducao p {
+            font-size: 1.5rem;
+            color: #52525252;
+        }
+        @media (max-width: 1000px) {
+            .introducao h1 {
+                font-size: 3rem;
+            }
+        }
+        @media (max-width: 800px) {
+            .introducao {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            .introducao h1 {
+                font-size: 2rem;
+            }
+            .introducao h1::before {
+                width: 30px;
+                height: 10px;
+                left: 0px;
+            }
+        }
+        @media (max-width: 500px) {
+            .introducao {
+                grid-template-columns: 1fr;
+            }
+            .introducao img {
+                display: none;
+            }
+        }
+    /* 2-INTRODUCAO-END */
+
+    /* 3-projetos-START */
+        .experiencia {
+            max-width: 1200px;
+            padding: 40px 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 100px;
+        }
+        .experiencia .subtitulo {
+            color: #e0e0e0;
+        }
+        .experiencia-texto {
+            font-size: 1.5rem;
+            line-height: 1.33;
+            max-width: 40ch;
+            margin-bottom: 60px;
+            color: #525252;
+        }
+        .experiencia-texto strong {
+            color: #141414;
+        }
+        .empresa {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            padding: 20px;
+            background: #f5f5f5;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            position: relative;
+        }
+        .empresa::before {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(#b6f829, #67dd0a);
+            position: absolute;
+            top: 20px;
+            left: -4px;
+        }
+        .empresa-ano {
+            position: absolute;
+            top: 22px;
+            left: -100px;
+            text-align: right;
+            width: 80px;
+            color: #525252;
+            font-size: 0.875rem;
+        }
+        .empresa-titulo {
+            font-size: 1.125rem;
+            line-height: 1.1;
+            font-weight: bold;
+        }
+        .empresa-texto {
+            font-size: 0.875rem;
+            line-height: 1.4;
+            color: #525252;
+        }
+        .empresa-habilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-content: start;
+        }
+        .empresa-habilidades li {
+            font-size: 0.875rem;
+            line-height: 1.4;
+            border-radius: 4px;
+            background: #ffffff;
+            padding: 5px 10px;
+        }
+        @media (max-width: 800px) {
+        .experiencia {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .experiencia .subtitulo {
+            color: #141414;
+        }
+        .experiencia-texto {
+            font-size: 1.25rem;
+        }
+        .empresa-ano {
+            position: initial;
+            order: 1;
+            width: initial;
+            text-align: left;
+        }
+        }
+        @media (max-width: 400px) {
+        .empresa {
+            grid-template-columns: 1fr;
+        }
+        }
+    /* 3-EXPERIENCIA-END */
+
+    /* 4-PROJETOS-START */
+        .projetos {
+            max-width: 1200px;
+            padding: 40px 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 100px;
+        }
+        .projetos .subtitulo {
+            color: #e0e0e0;
+        }
+        .projetos-texto {
+            font-size: 1.5rem;
+            line-height: 1.33;
+            max-width: 40ch;
+            margin-bottom: 60px;
+            color: #525252;
+        }
+        .projetos-texto strong {
+            color: #141414;
+        }
+        .empresa {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+            padding: 20px;
+            background: #f5f5f5;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            position: relative;
+        }
+        .empresa::before {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(#b6f829, #67dd0a);
+            position: absolute;
+            top: 20px;
+            left: -4px;
+        }
+        .empresa-ano {
+            position: absolute;
+            top: 22px;
+            left: -100px;
+            text-align: right;
+            width: 80px;
+            color: #525252;
+            font-size: 0.875rem;
+        }
+        .empresa-titulo {
+            font-size: 1.125rem;
+            line-height: 1.1;
+            font-weight: bold;
+        }
+        .empresa-texto {
+            font-size: 0.875rem;
+            line-height: 1.4;
+            color: #525252;
+        }
+        .empresa-habilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-content: start;
+        }
+        .empresa-habilidades li {
+            font-size: 0.875rem;
+            line-height: 1.4;
+            border-radius: 4px;
+            background: #ffffff;
+            padding: 5px 10px;
+        }
+
+        .empresa-habilidades li a {
+            color: #525252;
+        }
+        @media (max-width: 800px) {
+        .projetos {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .projetos .subtitulo {
+            color: #141414;
+        }
+        .projetos-texto {
+            font-size: 1.25rem;
+        }
+        .empresa-ano {
+            position: initial;
+            order: 1;
+            width: initial;
+            text-align: left;
+        }
+        }
+        @media (max-width: 400px) {
+        .empresa {
+            grid-template-columns: 1fr;
+        }
+        }
+    /* 4-PROJETOS-END */
+
+    /* 5-FORMAÇÃO-START */
+        .formacao {
+            background: #141414;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .formacao-container {
+            max-width: 1200px;
+            padding: 120px 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 100px;
+            position: relative;
+        }
+        .formacao-container::after {
+            content: "";
+            display: block;
+            width: 130px;
+            height: 100px;
+            background: url("../img/detalhe.svg") no-repeat center;
+            position: absolute;
+            bottom: -50px;
+            left: 20px;
+        }
+        .formacao .subtitulo {
+            color: #000000;
+            max-width: 5ch;
+        }
+        .formacao-texto {
+            font-size: 1.5rem;
+            line-height: 1.33;
+            max-width: 40ch;
+            margin-bottom: 60px;
+            color: #a3a3a3;
+        }
+        .formacao-texto strong {
+            color: #ffffff;
+        }
+        .faculdade-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .faculdade {
+            flex: 1;
+            background: #000000;
+            padding: 20px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+        }
+        .faculdade-tipo {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            color: #a3a3a3;
+            margin-bottom: 10px;
+        }
+        .faculdade-curso {
+            flex: 1;
+            font-size: 1.125rem;
+            line-height: 1.4;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .faculdade-curso::before {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(#b6f829, #67dd0a);
+            position: absolute;
+            left: -24px;
+        }
+        .faculdade-instituicao {
+            font-size: 1.125rem;
+            color: #a3a3a3;
+        }
+        .cursos {
+            margin-bottom: 60px;
+        }
+        .formacao-extra h3 {
+            font-size: 0.875rem;
+            line-height: 1.4;
+            color: #8f8f8f;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .formacao-extra h3::before {
+            display: block;
+            content: "";
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: -36px;
+            top: -4px;
+        }
+        .cursos h3::before {
+            background: url("../img/cursos.svg") no-repeat center center;
+        }
+        .idiomas h3::before {
+            background: url("../img/idiomas.svg") no-repeat center center;
+        }
+        .formacao-extra li {
+            font-size: 1.125rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .formacao-extra span {
+            color: #8f8f8f;
+        }
+        .cursos li {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media (max-width: 800px) {
+            .formacao-container {
+                grid-template-columns: 1fr;
+                padding: 60px 20px;
+                gap: 40px;
+            }
+            .formacao .subtitulo {
+                color: #ffffff;
+            }
+            .formacao-texto {
+                font-size: 1.25rem;
+            }
+            .formacao-extra h3::before {
+                position: initial;
+                margin-bottom: 10px;
+            }
+        }
+    /* 5-FORMAÇÃO-END */
+
+    /* 6-FOOTER-START */
+        .footer {
+            background: #000000;
+        }
+        .footer-container {
+            max-width: 1200px;
+            padding: 120px 20px 60px 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+        .footer-texto {
+            font-size: 1.5rem;
+            line-height: 1.33;
+            color: #cccccc;
+        }
+        .footer-contato li {
+            font-weight: bold;
+            font-size: 2.25rem;
+            line-height: 1.1;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+        .footer-contato li a {
+            color: #ffffff;
+        }
+        .footer-copy {
+            grid-column: 1 / -1;
+            font-size: 1.125rem;
+            color: #8f8f8f;
+        }
+        @media (max-width: 800px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-contato li {
+                font-size: 1.5rem;
+            }
+        }
+    /* 6-FOOTER-END */
+
+
+    </style>
 </head>
-
 <body>
-    <section class="portifolio">
-        <section class="home">
-            <div class="home-info">
-                <img class="foto-perfil" src="img/victor.jpg">
-                <h1>Victor Lagôas Catelan</h1>
-                <p>
-                    Front-End Developer | HTML | CSS | Javascript
-                </p>
-                <img src="img/location.png">
-                <p>
-                    São Bernardo do Campo - São Paulo - Brasil
-                </p>
-            </div>
+<!-- 1-HEADER-START -->
+    <header class="header">
+        <h1>Victor Lagôas Catelan</h1>
+        <nav>
+            <ul class="header-menu">
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- 1-HEADER-END -->
 
-        </section>
-        <section>
-            <div class="perfil">
-                <h2>Perfil</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur. Vestibulum sit amet auctor quam, a semper libero. Sed a lacinia tortor. Pellentesque ultricies lacus maximus, suscipit sapien vel, mattis nulla. Aenean condimentum ullamcorper enim, at euismod ipsum. Sed nisi augue, sagittis quis ultrices vel, facilisis ac metus. Maecenas venenatis ultrices porttitor. Morbi a risus nibh. Ut vulputate sed elit et tempor. Ut congue dui a condimentum pretium. Vestibulum eget felis sed purus venenatis pharetra. Maecenas volutpat sodales ex quis volutpat. Curabitur ac lacus est. Praesent facilisis ipsum nec finibus mollis.
-                </p>
-            </div>
-            <div class="Currículo">
-                <h2>Currículo</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur. Vestibulum sit amet auctor quam, a semper libero. Sed a lacinia tortor. Pellentesque ultricies lacus maximus, suscipit sapien vel, mattis nulla. Aenean condimentum ullamcorper enim, at euismod ipsum. Sed nisi augue, sagittis quis ultrices vel, facilisis ac metus. Maecenas venenatis ultrices porttitor. Morbi a risus nibh. Ut vulputate sed elit et tempor. Ut congue dui a condimentum pretium. Vestibulum eget felis sed purus venenatis pharetra. Maecenas volutpat sodales ex quis volutpat. Curabitur ac lacus est. Praesent facilisis ipsum nec finibus mollis.
-                </p>
-                <button>Download do Currículo</button>
-            </div>
-            <div class="Portifólio">
-                <h2>Postifólio</h2>
-                <img src="img/github.png">
-                <a href="" target="_blank">
-                    <h3>Aleras</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-                <a href="https://vcatelan.github.io/artmovtattoo/" target="_blank">
-                    <h3>ArtMovTattoo</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-                <a href="https://vcatelan.github.io/athenasfc/" target="_blank">
-                    <h3>Athenas FC</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-                <a href="https://vcatelan.github.io/bonasalgados/" target="_blank">
-                    <h3>Bona Salgados</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-                <a href="https://vcatelan.github.io/fourkings/" target="_blank">
-                <h3>Four Kings - Urban Wear</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-                <a href="https://vcatelan.github.io/gagliardicelulares/" target="_blank">
-                    <h3>Gagliardi Celulares</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-                <a href="https://vcatelan.github.io/ilnonni/" target="_blank">
-                    <h3>Il Nonni - Produtos Artesanais</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-                <a href="https://vcatelan.github.io/livrojogo/" target="_blank">
-                    <h3>Livro-Jogo</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur.
-                    </p>
-                </a>
-            </div>
-            <div class="contato">
-                <h2>Contato</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur. Vestibulum sit amet auctor quam, a semper libero. Sed a lacinia tortor. Pellentesque ultricies lacus maximus, suscipit sapien vel, mattis nulla. Aenean condimentum ullamcorper enim, at euismod ipsum. Sed nisi augue, sagittis quis ultrices vel, facilisis ac metus. Maecenas venenatis ultrices porttitor. Morbi a risus nibh. Ut vulputate sed elit et tempor. Ut congue dui a condimentum pretium. Vestibulum eget felis sed purus venenatis pharetra. Maecenas volutpat sodales ex quis volutpat. Curabitur ac lacus est. Praesent facilisis ipsum nec finibus mollis.
-                </p>
-                <img src="img/email.png">
-                <img src="img/linkedin.png">
-                <img src="img/whatsapp.png">
+<!-- 2-INTRODUCAO-START -->
+    <main class="introducao">
+        <img class="img-perfil" src="./perfil.jpg" alt="Foto Perfil">
+        <div>
+            <h1>Desenvolvedor <br> Front End <br> & UX Design</h1>
+            <p>Localizado em São Bernardo do Campo - São Paulo</p>
+        </div>
+    </main>
+<!-- 2-INTRODUCAO-END -->
 
-            </div>
-            <div class="redes">
-                <h2>Minhas Redes</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ultricies mi. Ut pharetra pellentesque urna, eu porta erat varius efficitur. Vestibulum sit amet auctor quam, a semper libero. Sed a lacinia tortor. Pellentesque ultricies lacus maximus, suscipit sapien vel, mattis nulla. Aenean condimentum ullamcorper enim, at euismod ipsum. Sed nisi augue, sagittis quis ultrices vel, facilisis ac metus. Maecenas venenatis ultrices porttitor. Morbi a risus nibh. Ut vulputate sed elit et tempor. Ut congue dui a condimentum pretium. Vestibulum eget felis sed purus venenatis pharetra. Maecenas volutpat sodales ex quis volutpat. Curabitur ac lacus est. Praesent facilisis ipsum nec finibus mollis.
-                </p>
-                <img src="img/facebook.png">
-                <img src="img/instagram.png">
-                <img src="img/twitter.png">
-            </div>
-        </section>    
-        </section>
-    </section>
+<!-- 3-EXPERIENCIA-START -->
+<section class="experiencia" id="experiencia" aria-label="Experiência">
+    <h2 class="subtitulo">Experiência</h2>
+    <div>
+      <p class="experiencia-texto">Desenvolvo projetos utilizando <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>.
+
+      <div class="empresa">
+        <span class="empresa-ano">2022—Atual</span>
+        <h3 class="empresa-titulo">HBK Digital</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">Na HBK Digital trabalho com o desenvolvimento projetos de Landing Page completos em HTML, CSS e JavaScript. Também auxilío no desenvolvimento de campanhas pela ferramenta de automação de Marketo.</p>
+        <ul class="empresa-habilidades">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>UX Design</li>
+          <li>UI Design</li>
+          <li>Bootstrap</li>
+          <li>Wordpress</li>
+          <li>Marketo</li>
+        </ul>
+      </div>
+
+      <div class="empresa">
+        <span class="empresa-ano">2021—Atual</span>
+        <h3 class="empresa-titulo">Front-End Web Developer Autonomo</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">Criação e desenvolvimento de sites, Desenvolvimento de Ux, Prototipação de sites em Figma, Criação e desenvolvimento de sites- HTML, CSS e Javascript. </p>
+        <ul class="empresa-habilidades">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>UX Design</li>
+          <li>UI Design</li>
+        </ul>
+      </div>
+
+      <div class="empresa">
+        <span class="empresa-ano">03/2020 11/2022</span>
+        <h3 class="empresa-titulo">Ville Equipamentos</h3>
+        <span class="empresa-titulo">Vendedor Interno</span>
+        <p class="empresa-texto">Com mais de dois anos como vendedor interno em uma empresa líder do setor EPI's, sou proficiente em técnicas avançadas de vendas e negociação, resultando em notável aumento nas vendas. Possuo habilidades excepcionais no atendimento ao cliente, garantindo satisfação tanto para clientes novos quanto recorrentes, ao acompanhar todo o processo de vendas desde o atendimento inicial até o pós-venda.</p>
+        <ul class="empresa-habilidades">
+          <li>Atendimento a clientes novos e recorrentes.</li>
+          <li>Acompanhamento do processo de vendas, desde o atendimento, até o pós venda.</li>
+        </ul>
+      </div>
+
+      <div class="empresa">
+        <span class="empresa-ano">12/2009 01/2017</span>
+        <h3 class="empresa-titulo">China Brasil Investimento e Desenvolvimento Comercial LTDA</h3>
+        <span class="empresa-titulo">Supervisor Administrativo /Atendente de Eventos</span>
+        <p class="empresa-texto">Supervisionei e coordenei uma equipe operacional e administrativa de eventos, liderando sete colaboradores diretos para garantir o funcionamento eficiente das operações diárias. Introduzi e implementei procedimentos operacionais visando aprimorar a eficiência e qualidade dos serviços. Destaquei-me no desenvolvimento de novos negócios,
+            especificamente na locação de espaços para eventos. Fui responsável pelo planejamento e coordenação de eventos corporativos, internos e externos, além de liderar campanhas bem-sucedidas de marketing digital. <br><br>Como atendente de eventos, fui responsável pela solicitação de cotações e contratação de serviços terceirizados. Destaquei-me no atendimento ao cliente, na montagem de layouts e no acompanhamento técnico. Assumi a responsabilidade pelo pós-vendas, resolvendo problemas de entrega e assegurando a qualidade. Organizei eventos de grande escala, assegurando a satisfação do cliente e gerenciando eficientemente o orçamento para otimizar o uso de recursos.</p>
+        <ul class="empresa-habilidades">
+          <li>Supervisão de equipe operacionalde eventos e administrativo (7 reportes diretos).</li>
+          <li>Desenvolvimento de novos negócios de locação de espaços para eventos.</li>
+          <li>Planejamento e coordenação de eventos corporativos, internos eexternos.</li>
+          <li>Responsável por campanhas de marketing digital.</li>
+          <li>Solicitação de cotação econtratação de serviços de terceiros.</li>
+          <li>Atendimento, montagem de layoute acompanhamento técnico aclientes.</li>
+          <li>Responsável por pós-vendas, resolução de problemas de entrega e qualidade.</li>
+        </ul>
+      </div>
+
+      <div class="empresa">
+        <span class="empresa-ano">05/2008 11/2009</span>
+        <h3 class="empresa-titulo">Cliniorto Centro Odontológico</h3>
+        <span class="empresa-titulo">Auxiliar Administrativo</span>
+        <p class="empresa-texto">Exerci o controle efetivo de contas a pagar e receber relacionadas a convênios odontológicos, assegurando a integridade financeira das transações. Fui responsável pela aquisição estratégica de materiais cirúrgicos e de escritório, otimizando custos e garantindo o suprimento necessário. Além disso, prestei apoio vital no controle de documentos, organização de arquivos e desempenhei um papel essencial no atendimento telefônico. Contribuí ativamente em projetos de melhoria de processos administrativos, visando a eficiência e aprimoramento contínuo das operações.</p>
+        <ul class="empresa-habilidades">
+          <li>Controle de contas a pagar ereceber de convênios odontológicos.</li>
+          <li>Compra de material cirúrgico e de escritório.</li>
+        </ul>
+      </div>
+
+      <div class="empresa">
+        <span class="empresa-ano">04/2005 08/2007</span>
+        <h3 class="empresa-titulo">Mercosul AssistanceParticipações</h3>
+        <span class="empresa-titulo">Analista de Sinistros / Analistade Atendimento</span>
+        <p class="empresa-texto">Processo de conferência de valores cobrados x Serviços Prestados pela equipe parceira.<br><br> Atendimento a assistência 24h de seguiradoras como AGF, Alfa, Maritima e Pós Venda/Garantia veiculas de montadoras como Citroen, Toyota e BMW.</p>
+        <ul class="empresa-habilidades">
+          <li>Auditoria e controle financeiro de prestadores de serviços automotivos e residenciais.</li>
+          <li>Atendimento telefônico das seguradoras AGF, Alfa, Citroen.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+<!-- 3-EXPERIENCIA-END -->
+
+<!-- 4-PROJETOS-START -->
+<section class="projetos" id="projetos" aria-label="Experiência">
+    <div>
+
+      <div class="empresa">
+        <h3 class="empresa-titulo">Bikcraft</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">No projeto Bikcraft eu trabalhei no desenvolvimento completo do HTML, CSS e JavaScript do site. Além disso, também prestei consultoria no Design.</p>
+        <ul class="empresa-habilidades">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>UX Design</li>
+          <li>UI Design</li>
+          <li><a target="_blank" href="https://vcatelan.github.io/bikcraft/">Acesse o Projeto</a></li>
+        </ul>
+      </div>
+
+      <div class="empresa">
+        <h3 class="empresa-titulo">Athenas FC</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">Projeto desenvolvido para o time de futebol feminino Athenas FC. No Atheas FC trabalhei no desenvolvimento completo do HTML, CSS e JavaScript do site. Além disso, também prestei consultoria no Design.</p>
+        <ul class="empresa-habilidades">
+          <li>HTML e CSS</li>
+          <li>JavaScript</li>
+          <li>UX Design</li>
+          <li>UI Design</li>
+          <li><a target="_blank" href="https://vcatelan.github.io/athenasfc/">Acesse o Projeto</a></li>
+        </ul>
+      </div>
+
+      <div class="empresa">
+        <h3 class="empresa-titulo">Bona Salgados</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">O Bona Salgados é uma pagina informativa da empresa. Trabalhei no desenvolvimento completo do HTML, CSS e JavaScript do site.</p>
+        <ul class="empresa-habilidades">
+            <li>HTML e CSS</li>
+            <li>JavaScript</li>
+            <li>UX Design</li>
+            <li>UI Design</li>
+          <li><a target="_blank" href="https://vcatelan.github.io/bonasalgados/">Acesse o Projeto</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="empresa">
+        <h3 class="empresa-titulo">Il Nonni</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">Página da loja de vinhos artesanais Nonno Roque. Realizei o desenvolvimento completo do HTML, CSS e JavaScript do site. Além disso, também prestei consultoria no Design.</p>
+        <ul class="empresa-habilidades">
+            <li>HTML e CSS</li>
+            <li>JavaScript</li>
+            <li>UX Design</li>
+            <li>UI Design</li>
+            <li><a target="_blank" href="https://vcatelan.github.io/bonasalgados/">Acesse o Projeto</a></li>
+        </ul>
+      </div> -->
+
+<!--       <div class="empresa">
+        <h3 class="empresa-titulo">Hugo Fotografia</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">Portifólio do fotógrafo Hugo Sales. Realizei o desenvolvimento completo do HTML, CSS e JavaScript do site. Além disso, também prestei consultoria no Design.</p>
+        <ul class="empresa-habilidades">
+            <li>HTML e CSS</li>
+            <li>JavaScript</li>
+            <li>UX Design</li>
+            <li>UI Design</li>
+            <li><a target="_blank" href="https://vcatelan.github.io/hugosalesfotography/">Acesse o Projeto</a></li>
+        </ul>
+      </div> -->
+
+      <div class="empresa">
+        <h3 class="empresa-titulo">Livro-Jogo</h3>
+        <span class="empresa-titulo">Desenvolvedor Júnior</span>
+        <p class="empresa-texto">Projeto em Construção</p>
+        <ul class="empresa-habilidades">
+            <li>HTML e CSS</li>
+            <li>JavaScript</li>
+            <li>UX Design</li>
+            <li>UI Design</li>
+            <li><a target="_blank" href="">Em Construção</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <h2 class="subtitulo">Pro<br>je<br>tos</h2>
+
+  </section>
+<!-- 4-PROJETOS-END -->
+
+<!-- 5-FORMAÇÃO-START -->
+<section class="formacao" id="formacao" aria-label="Formação">
+    <div class="formacao-container">
+      <h2 class="subtitulo">Formação</h2>
+
+      <div>
+        <p class="formacao-texto">
+          Minha mais recente experiência acadêmica foi o <strong>bacharelado</strong> que fiz em <strong>Superior de Tecnologia em Análise e Desenvolvimento de Sistemas</strong>. Além disso me mantenho sempre atualizado com cursos intensivos online.
+        </p>
+
+        <ul class="faculdade-lista">
+          <li class="faculdade">
+            <span class="faculdade-tipo">Bacharel</span>
+            <h3 class="faculdade-curso"><a target="_blank" href="https://cse.webapp.abaris.com.br/diploma/417.417.a0ae1c028538">Superior de Tecnologia em Análise e Desenvolvimento de Sistemas</a></h3>
+            <span class="faculdade-instituicao">Universidade Cruzeiro do Sul — Conclusão 2022</span>
+          </li>
+          <!-- <li class="faculdade">
+            <span class="faculdade-tipo">Tecnólogo</span>
+            <h3 class="faculdade-curso">Design Digital</h3>
+            <span class="faculdade-instituicao">Infnet</span>
+          </li>
+          <li class="faculdade">
+            <span class="faculdade-tipo">Mestre</span>
+            <h3 class="faculdade-curso">User Experience Design</h3>
+            <span class="faculdade-instituicao">UCLL</span>
+          </li> -->
+        </ul>
+
+        <div class="formacao-extra">
+          <div class="cursos">
+            <h3>Cursos Intensivos</h3>
+            <ul>
+
+                <li><a href="https://cursos.alura.com.br/certificate/b0375a50-171c-49cd-bb36-e0944cefb813?lang=pt_BR">Lógica de Programação: Comece em Lógica com o jogo Pong e JavaScript — Alura </a> <span>06h</span></li>
+                <li><a href="https://cursos.alura.com.br/certificate/babd3dbf-0675-469d-9be2-6480da3e3ebc?lang=pt_BR">Lógica de Programação: Laços e Listas com JavaScript — Alura </a> <span>04h</span></li>
+                <br>
+                <li><a href="https://cursos.alura.com.br/certificate/5c118ec1-b15d-4a94-bee5-7cb531b5f744?lang=pt_BR">HTML5 E CSS3 Parte 1: Crie Uma Página Web — Alura </a> <span>08h</span></li>
+                <li> <a href="https://cursos.alura.com.br/certificate/359e7cb1-d89e-4e04-9696-2d552b34e84c?lang=pt_BR">HTML5 E CSS3 Parte 2: Posicionamento, Listas e Navegação — Alura </a> <span>08h</span></li>
+                <li> <a href="https://cursos.alura.com.br/certificate/75c19968-2401-4d67-99ae-a9be31c548ef?lang=pt_BR">HTML5 E CSS3 Parte 3: Trabalhando com Formulários e Tabelas — Alura </a> <span>08h</span></li>
+                <li> <a href="https://cursos.alura.com.br/certificate/24f25c0f-ba9f-41e0-a2b2-bf3f00a3cf10?lang=pt_BR">HTML5 E CSS3 Parte 4: Avançado no CSS — Alura </a> <span>08h</span></li>
+                <li><a href="https://cursos.alura.com.br/certificate/3b968345-9dfe-4854-add4-e35e3b3692fb?lang=pt_BR">HTML5 E CSS3 I: Suas Primeiras Páginas da Web — Alura </a> <span>32h</span></li>
+                <li><a href="https://cursos.alura.com.br/certificate/9ab4c003-12ac-4c32-961d-15f7b420547b?lang=pt_BR">HTML5 E CSS3 II: Turbinando as suas Páginas — Alura </a> <span>40h</span></li>
+                <br>
+                <li><a href="https://cursos.alura.com.br/certificate/fe14197d-d8a4-42a4-89d3-6f182c3c2545?lang=pt_BR">SASS E COMPASS: Descomplicando o CSS — Alura</a> <span>08h</span></li>
+                <br>
+                <li> <a href="https://cursos.alura.com.br/certificate/870a9ecd-e004-49b0-8e87-2d8250e5879e?lang=pt_BR">JavaScript: Programando na Linguagem da WEB — Alura </a> <span>20h</span></li>
+                <br>
+                <li> <a href="https://cursos.alura.com.br/certificate/e6e9bbcc-965b-4467-b33f-ebe37f4ed6f2?lang=pt_BR">JQUERY: Domine a Biblioteca mais Popular do Mercado Parte 1 — Alura </a> <span>12h</span></li>
+                <li> <a href="https://cursos.alura.com.br/certificate/de528674-980c-4b08-a104-98b1f3adb8bc?lang=pt_BR">JQUERY: Avance na Biblioteca mais Popular do Mercado Parte 2 — Alura </a> <span>12h</span></li>
+                <br>
+                <li><a href="https://www.origamid.com/certificate/34efba85">HTML e CSS para Iniciantes — Origamid </a> <span>46h</span></li>
+                <br>
+                <li><a href="https://www.origamid.com/certificate/d8789b95">Web Design Completo — Origamid </a> <span>44h</span></li>
+                <br>
+                <li><a href="https://origamid.com/certificate/02f905e3">Javascript Completo ES6 — Origamid </a> <span>74h</span></li>
+                <li><a href="https://www.origamid.com/certificate/39e8e824">React Completo — Origamid </a> <span>36h</span></li>
+                <br>
+                <li><a href="https://www.origamid.com/certificate/9610b329">CSS Flexbox — Origamid </a> <span>06h</span></li>
+                <li><a href="https://www.origamid.com/certificate/aa008b4d">CSS com SASS — Origamid </a> <span>12h</span></li>
+                <br>
+                <li><a href="https://www.origamid.com/certificate/d3a273a3">Bootstrap 4 — Origamid </a> <span>10h</span></li>
+            </ul>
+          </div>
+          <div class="idiomas">
+            <h3>Idiomas</h3>
+            <ul>
+              <li>Inglês <span>/ Fluente — Intercâmbio Cultural - Escola IELTS, Malta</span></li>
+              <li>Espanhol <span>/ Fluente</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- 5-FORMAÇÃO-END -->
+
+<!-- 6-FOOTER-START -->
+<footer class="footer" id="contato">
+    <div class="footer-container">
+      <p class="footer-texto">Estou disponível para novos projetos no momento. Entre em contato comigo e marcamos uma conversa.</p>
+      <ul class="footer-contato">
+        <li>lagoascatelan@gmail.com</li>
+        <li>+55 (11) 997-586-654</li>
+        <li><a href="https://www.linkedin.com/in/victorcatelan/">www.linkedin.com/in/victorcatelan</a></li>
+        <li><a href="https://github.com/vcatelan">https://github.com/vcatelan</a></li>
+      </ul>
+      <!-- <p class="footer-copy">Lobo. Alguns direitos reservados.</p> -->
+    </div>
+  </footer>
+<!-- 6-FOOTER-END -->
+
+
+
     
-
 </body>
+</html>
